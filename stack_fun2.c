@@ -22,7 +22,7 @@ void swap_nodes(stack_t **stack, unsigned int line_numb)
 	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_numb, "swap");
+		more_error(8, line_numb, "swap");
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	if (tmp->next != NULL)
@@ -43,7 +43,7 @@ void add_nodes(stack_t **stack, unsigned int line_numb)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_numb, "add");
+		more_error(8, line_numb, "add");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
@@ -64,7 +64,7 @@ void sub_nodes(stack_t **stack, unsigned int line_numb)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		more_err(8, line_numb, "sub");
+		more_error(8, line_numb, "sub");
 
 
 	(*stack) = (*stack)->next;
@@ -85,10 +85,10 @@ void div_nodes(stack_t **stack, unsigned int line_numb)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_numb, "div");
+		more_error(8, line_numb, "div");
 
 	if ((*stack)->n == 0)
-		more_err(9, line_numb);
+		more_error(9, line_numb);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = sum;
